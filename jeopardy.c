@@ -125,7 +125,6 @@ int main() {
             // If the user picks a question
             char *category = tokens[1];
             int value = atoi(tokens[2]);
-            int i;
             if (!already_answered(category, value)) {
                 // Display the question
                 display_question(category, value);
@@ -134,17 +133,19 @@ int main() {
                 strtok(buffer, "\n"); // Remove trailing newline
                 
                 // Validate the answer
-                if (valid_answer(category, value, buffer)) {
+                ValidationResult ans = valid_answer(category, value, buffer);
+                if (ans.valid) {
                     printf("Correct answer! You earned %d points.\n", value);
+                    
                     // Update player's score
-                    for (i = 0; i < NUM_PLAYERS; i++) {
+                    for (int i = 0; i < NUM_PLAYERS; i++) {
                         if (strcmp(players[i].name, tokens[3]) == 0) {
                             players[i].score += value;
                             break;
                         }
                     }
                 } else {
-                    printf("Incorrect answer! The correct answer is: %s\n", questions[i].answer);
+                    printf("Incorrect answer! The correct answer is: %s\n", questions[ans.question].answer);
                 }
             } else {
                 printf("Question already answered.\n");

@@ -46,8 +46,14 @@ extern void display_categories(void);
 // Displays the question for the category and dollar value
 extern void display_question(char *category, int value);
 
+// answer struct for each answer
+typedef struct {
+   int question;
+   bool valid;
+} ValidationResult;
+
 // Returns true if the answer is correct for the question for that category and dollar value
-extern bool valid_answer(char *category, int value, char *answer);
+extern ValidationResult valid_answer(char *category, int value, char *answer);
 
 // Returns true if the question has already been answered
 extern bool already_answered(char *category, int value);

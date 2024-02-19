@@ -42,7 +42,7 @@ void display_categories(void)
 // Displays the question for the category and dollar value
 void display_question(char *category, int value)
 {
-for (int i = 0; i < NUM_QUESTIONS; i++) {
+    for (int i = 0; i < NUM_QUESTIONS; i++) {
         if (strcmp(questions[i].category, category) == 0 && questions[i].value == value) {
             printf("Category: %s\n", questions[i].category);
             printf("Question: %s\n", questions[i].question);

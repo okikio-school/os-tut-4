@@ -30,3 +30,9 @@ void update_score(player *players, int num_players, char *name, int score) {
         }
     }
 }
+
+void print_players(player *players, int num_players) {
+    for (int i = 0; i < num_players; i++) {
+        printf("Player: %s, Score: $%d\n", players[i].name, players[i].score);
+    }
+}

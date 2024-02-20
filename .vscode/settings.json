@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "questions.h": "c",
+        "stdbool.h": "c"
+    }
+}

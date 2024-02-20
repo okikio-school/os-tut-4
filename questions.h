@@ -12,6 +12,7 @@
 
 #define MAX_LEN 256
 #define NUM_CATEGORIES 3
+
 // The number of questions, you can use this in your functions in
 // questions.c, this can be accessed in questions.c
 #define NUM_QUESTIONS_PER_CATEGORY 4 
@@ -45,6 +46,9 @@ extern void display_categories(void);
 
 // Displays the question for the category and dollar value
 extern void display_question(char *category, int value);
+
+// String to lower case
+extern void stringToLower(char *s);
 
 // answer struct for each answer
 typedef struct {

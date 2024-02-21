@@ -126,6 +126,9 @@ void show_results(player *players, int num_players) {
 }
 
 int main() {
+    // Flag to check if all questions have been answered    
+    bool allAnswered = false;
+
     // An array of 4 players, may need to be a pointer if you want it set dynamically
     player players[NUM_PLAYERS];
     
@@ -235,8 +238,10 @@ int main() {
                 // Mark the question as answered
                 questions[ans.question].answered = true;
 
+                // Reset the all answered flag to true
+                allAnswered = true;
+
                 // Check if all questions have been answered
-                bool allAnswered = true;
                 for (int i = 0; i < NUM_QUESTIONS; i++) {
                     if (!questions[i].answered) {
                         allAnswered = false;
@@ -254,6 +259,6 @@ int main() {
     }
 
     // End of game: display final results
-    show_results(players, NUM_PLAYERS);
+    if (allAnswered) show_results(players, NUM_PLAYERS);
     return EXIT_SUCCESS;
 }
